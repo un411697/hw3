@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Change your data{% endblock %}
+{% block body %}
+<form method="post" action="/change">
+  {% if complaint %}<span class="complaint">{{ complaint }}<br></span>{% endif %}
+  {% for p in infos %}
+  <label>ID   : {{ p.work_id }}<br></label> 
+  <label>Name : {{ p.name }}<br></label>
+  <label>Ssn  : {{ p.ssn }}<br></label>
+  {% endfor %}
+  <label>Age  : <input name="age" value="{{ age }}"><br></label>
+  <label>Sex  : <input name="sex" value="{{ sex }}"><br></label>
+  <label>Email: <input name="email" value="{{ email }}"><br></label>
+  <button type="submit">Send </button> | <a href="/">Cancel</a>
+</form>
+{% endblock %}
